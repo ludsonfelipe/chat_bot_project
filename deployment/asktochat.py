@@ -74,7 +74,7 @@ class AskToChat:
         # Pad the encoded text so that it has a consistent length
         encoded_text = pad_sequences([encoded_words], maxlen=10, padding='post')
 
-        # Get the prediction from the chatbot model
+        # Get the prediction from the chatbot model #
         predict = self.model.predict([encoded_text, encoded_text])
 
         return self.decode_to_string(predict)
