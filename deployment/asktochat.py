@@ -1,8 +1,8 @@
-from preprocessing import TextCleaning
-import json
+from data_cleaning_preprocessing.cleaning_data import TextCleaning
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
 import numpy as np
+import json
 
 def get_encoded_words(string, word2idx):
     """
@@ -27,15 +27,15 @@ class AskToChat:
         Initializes the ChatBot object by loading the necessary files and models.
         """
         # Load the word2idx dictionary
-        with open('word2idx.json', 'r') as f:
+        with open('NLP Chat Bot/training_model/word2idx.json', 'r') as f:
             self.word2idx = json.load(f)
         
         # Load the idx2word dictionary
-        with open('idx2word.json', 'r') as f:
+        with open('NLP Chat Bot/training_model/idx2word.json', 'r') as f:
             self.idx2word = json.load(f)
         
         # Load the chatbot model
-        self.model = load_model('chatbot_model.h5')
+        self.model = load_model('NLP Chat Bot/training_model/chatbot_model.h5')
 
     def decode_to_string(self, predict):
         """

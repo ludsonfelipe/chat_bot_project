@@ -1,9 +1,9 @@
-import pandas as pd
 from flask import Flask, request
 from asktochat import AskToChat
-import pickle 
 
 app = Flask(__name__)
+
+ask = AskToChat()
 
 @app.route("/predict", methods=["POST"])
 def predict():
