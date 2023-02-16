@@ -21,21 +21,23 @@ def get_encoded_words(string, word2idx):
             encoded_words.append(word2idx[word])
     return encoded_words
 
+import sys
 class AskToChat:
     def __init__(self):
         """
         Initializes the ChatBot object by loading the necessary files and models.
         """
         # Load the word2idx dictionary
-        with open('NLP Chat Bot/training_model/word2idx.json', 'r') as f:
+        print(sys.path)
+        with open('training_model/word2idx.json', 'r') as f:
             self.word2idx = json.load(f)
         
         # Load the idx2word dictionary
-        with open('NLP Chat Bot/training_model/idx2word.json', 'r') as f:
+        with open('training_model/idx2word.json', 'r') as f:
             self.idx2word = json.load(f)
         
         # Load the chatbot model
-        self.model = load_model('NLP Chat Bot/training_model/chatbot_model.h5')
+        self.model = load_model('training_model/chatbot_model.h5')
 
     def decode_to_string(self, predict):
         """

@@ -1,3 +1,4 @@
 data_cleaning_preprocessing
 data_collection
+deployment
 training_model

@@ -1,5 +1,5 @@
 from flask import Flask, request
-from asktochat import AskToChat
+from deployment.asktochat import AskToChat
 
 app = Flask(__name__)
 
@@ -13,5 +13,5 @@ def predict():
     return response
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5003)
 
